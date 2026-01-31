@@ -2,27 +2,31 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import CustomButton from './src/components/CostumButton'; 
 
-export default function App(){
+export default function App() {
+  const handleOnLogin = () => {
+    console.log("prueba login desde app");
+    alert("Alerta login desde app");
+  }
 
-   const handleOnLogin = () => {
-    console.log ("prueba desde app");
-    alert("Alerta desde app");
+  const handleOnLogout = () => {
+    alert("Alerta logout desde app");
+  }
 
-    const handleOnLogout = () => {
-      alert ("alerta logout desde app")
-
-    }
- 
   return (
     <View style={styles.container}>
-      <Text>Hello World!</Text>
-      <StatusBar style="auto" />
-      <CustomButton  title= {'Login'} onClick={handleOnLogin} />
-
-      <CustomButton title={'Salir'} onClick={handleOnLogout} />
-       
-    
-       
+      <View style={styles.card}>
+        <Text>Open up App</Text>
+        <StatusBar style="auto" />
+        <View style={styles.buttonsWrapper}>
+          <CustomButton 
+              title={'Login'} 
+              onClick={handleOnLogin} />
+          <CustomButton 
+              title={'Salir'}
+              onClick={handleOnLogout}
+              variant={'secondary'} />
+        </View>
+      </View>
     </View>
   );
 }
@@ -30,9 +34,20 @@ export default function App(){
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f9f4f7',
     alignItems: 'center',
     justifyContent: 'center',
   },
+  card: {
+    width: "80%",
+    height: "80%",
+    borderRadius:15,
+    backgroundColor: '#f3f4f6',
+  },
+  buttonsWrapper: {
+    backgroundColor: "green",
+    marginTop: 15,
+    height: "30%",
+    alignItems: "center",
+    justifyContent: "space-around",
+  },
 });
-}
