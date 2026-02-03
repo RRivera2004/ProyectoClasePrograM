@@ -27,6 +27,7 @@ export default function CustomButton ({
 const getStyles = (variant: 'primary' | 'secondary' ) => 
     StyleSheet.create({
     container: {
+        marginBottom: 15,
         paddingVertical: 15,
         alignItems: 'center',
         width: "80%",
@@ -34,7 +35,7 @@ const getStyles = (variant: 'primary' | 'secondary' ) =>
             variant === "primary" ? "#2e4566": "white",
         borderRadius: 8,
         borderWidth: 1,
-        borderColor: "#f3f4f6",
+        borderColor: "#f4eeef",
     },
     text: {
         color: 
