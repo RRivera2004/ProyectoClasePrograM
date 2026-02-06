@@ -38,10 +38,22 @@ export default function App() {
             onClick={handleOnForgotPassword}
           />
 
-          <CustomInput />
+           <CustomInput 
+              placeholder={'Ingrese su correo'} 
+              onChange={()=>{}} 
+              value={''} 
+              typeInput={'email'}              
+              />
+               <CustomInput 
+              placeholder={'Password'} 
+              onChange={()=>{}} 
+              value={''} 
+              typeInput={'password'}              
+              />
         </View>
       </View>
     </View>
+        
   );
 }
 
