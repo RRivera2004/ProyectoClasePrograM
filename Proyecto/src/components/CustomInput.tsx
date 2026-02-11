@@ -1,4 +1,4 @@
-import { TextInput, View, Text, StyleSheet, TouchableOpacity, } from "react-native";
+import { TextInput, View, Text, StyleSheet, TouchableOpacity, KeyboardTypeOptions } from "react-native";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import { useState } from "react";
 
@@ -19,9 +19,25 @@ export default function CustomInput ({placeholder, onChange, value, typeInput}:P
     const icon : typeof MaterialIcons["name"]|undefined =
         typeInput === "email" ? "email" : 
             typeInput === "password" ? "lock" : undefined
+//email-address
+//numeric
+//default
+    
+        const keyboardType : KeyboardTypeOptions =
+        typeInput === "email" ? "email-address" :
+        typeInput === "number" ? "numeric" : "default"
 
-       
+        const getError = () =>{
+            if (typeInput === "email" && value.includes('@')) 
+                return 'Correo Invalido';
+
+            if (typeInput === "password" && value.length < 6)
+                return 'La contraseña debe ser mas fuerte';
+
+        };
         
+        const error = getError ();
+
     return(
         //wrapper
         <View style={styles.wrapper}>
@@ -38,7 +54,7 @@ export default function CustomInput ({placeholder, onChange, value, typeInput}:P
                     value={value} 
                     onChangeText={onChange}
                     secureTextEntry={isSecureText}
-                    
+                    keyboardType= {keyboardType}
                 />
 
              { isPasswordField && 
@@ -48,7 +64,7 @@ export default function CustomInput ({placeholder, onChange, value, typeInput}:P
             }
             
             </View>
-            <Text> *Campo Requerido {value}</Text> 
+            {error && <Text> {error}</Text> }
         </View>
     );
 }
