@@ -3,11 +3,16 @@ import { StyleSheet, Text, View } from 'react-native';
 import CustomButton from './src/components/CustomButton';
 import CustomInput from './src/components/CustomInput';
 import CustomPassword from './src/components/CustomPassword';
+import { useState } from 'react';
 
 export default function App() {
+  const [email,setEmail] = useState("");
+  const [password,setPassword] = useState("");
+
+
   const handleOnLogin = () => {
     console.log("prueba login desde app");
-    alert("Alerta login desde app");
+   
   }
 
   const handleOnLogout = () => {
@@ -24,7 +29,27 @@ export default function App() {
         <Text>Open up App</Text>
         <StatusBar style="auto" />
         <View style={styles.buttonsWrapper}>
-          <CustomButton
+
+           <CustomInput 
+              placeholder={'Ingrese su correo'} 
+              onChange={setEmail} 
+              value={email} 
+              typeInput={'email'}              
+              />
+               <CustomInput 
+              placeholder={'Password'} 
+              onChange={setPassword} 
+              value={password} 
+              typeInput={'password'}              
+              />
+               <CustomInput 
+              placeholder={'Name'} 
+              onChange={()=>{}}
+              value={""} 
+              typeInput={'text'}              
+              />
+              
+            <CustomButton
             title={'Login'}
             onClick={handleOnLogin}
           />
@@ -37,19 +62,6 @@ export default function App() {
             title={'Olvidé mi contraseña'}
             onClick={handleOnForgotPassword}
           />
-
-           <CustomInput 
-              placeholder={'Ingrese su correo'} 
-              onChange={()=>{}} 
-              value={''} 
-              typeInput={'email'}              
-              />
-               <CustomInput 
-              placeholder={'Password'} 
-              onChange={()=>{}} 
-              value={''} 
-              typeInput={'password'}              
-              />
         </View>
       </View>
     </View>
