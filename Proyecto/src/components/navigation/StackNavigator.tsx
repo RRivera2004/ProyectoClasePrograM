@@ -12,15 +12,19 @@ const Stack = createNativeStackNavigator<RootStackParamsList> ();
 export default function StackNavigator (){
 
    return(
-    <Stack.Navigator initialRouteName={'Login'}>
+    <Stack.Navigator initialRouteName='Login'
+         screenOptions={{headerShown: true}}
+         >
+
     <Stack.Screen 
-    name= "Login" 
-    component={LoginScreen}
+    name= "Home" 
+    component={HomeScreen}
 
     />
     <Stack.Screen
-    name="Home"
-    component={HomeScreen}
+    name="Login"
+    component={LoginScreen}
+    options={{title:'Inicio de Sesion'}}
     />
     </Stack.Navigator>
 
