@@ -18,10 +18,6 @@ export default function StackNavigator (){
          screenOptions={{headerShown: true}}
          >
 
-    {/*<Stack.Screen 
-    name= "Home" 
-    component={HomeScreen}
-    />*/}
     <Stack.Screen
     name="Login"
     component={LoginScreen}
